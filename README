@@ -1,0 +1,39 @@
+Description of the code:
+
+  	SEED:
+        1. Run seed.py, Bind socket and then listening for request/messages
+        2.Give Input For Port,(Then It Will be Binded)
+        3. if it receive the connect request from peer, it create separate thread and Then Send peer list to that peer
+        4. If it receive a dead message from it will remove from its peer list
+
+  	PEER:
+        1.Run peer.py Provide PORT and then Read seed address from connect file
+		2. Send request to seeds 
+		3. Receive peer list and connect to some random peers
+		4. It create 3 separate thread one for listening, another for gossip, and last one for liveness testing
+		5. It generate gossip message and also forward it and also generate liveness request 
+		6. If a peer is down it sends dead node message to seed node and then that Seed Node Remove this peer from it's peer List
+
+Details steps for compile and run:
+
+1. Open the project folder:
+	1. Open the file "config.txt" and put the IP and any Port no. in the format of "IP:PORT"
+	2. Based on the no. of seed we have to put all Seed Address manually
+
+  
+To compile seed:
+	3. Run the code using python seed.py
+	4. Based on no. of entries in config file, run different seeds with different port no. given in config file. Enter port no. only
+	5. Now run one or more instance of terminal using same step 3 and 4
+
+To compile peer:
+	6. Run the code using python3 peer.py
+	7. Give the port no. as you wish. Enter distinct port no. for each peer
+	8. Now run one or more instance of terminal using same step 6 and 7 to generate more peers. 
+
+References:
+1.https://github.com/attreyabhatt/Reverse-Shell/blob/master/Multi_Client%20(%20ReverseShell%20v2)/server.py
+2. Chat Gpt
+
+
+  
